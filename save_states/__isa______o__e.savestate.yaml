@@ -1,0 +1,28 @@
+--- !ruby/object:Game
+word: disapprove
+rounds: 20
+guesses:
+- h
+- a
+- e
+- i
+- o
+- u
+- t
+- s
+- l
+- n
+- m
+correct_guesses:
+- a
+- e
+- i
+- o
+- s
+incorrect_guesses:
+- h
+- u
+- t
+- l
+- n
+- m

@@ -9,6 +9,21 @@ class Game
     @incorrect_guesses = []
   end
 
+#  def load_game
+#    puts "Load a previously saved game (y/n)?"
+#    answer = gets.chomp.downcase until answer == "y" || answer == "n"
+#    if answer == "y"
+#      Dir.chdir('./save_states')
+#      files = Dir.glob('*') 
+#      puts "\nEnter the number of the saved game to load:"
+#      files.each_with_index do |file, index|
+#        puts "#{index}) #{file}"
+#      end
+#      file_number = gets.chomp.to_i
+#      YAML.load_file(files[file_number])
+#     end
+#   end
+  
   def round_text(round)
     puts "Wrong guesses: #{incorrect_guesses.join(" ")}"
     puts "#{round} round(s) remaining"
@@ -53,12 +68,14 @@ class Game
   end
     
   def save_game
-    file_name = "save_states/#{display_key("save")}.savestate.yaml"
+    Dir.chdir("save_states")
+  file_name = "#{display_key("save")}.savestate.yaml"
     save_handle = File.open(file_name, "w"){ |file| file.puts(YAML::dump(self)) }
     exit
   end
   
   def play_game
+#     load_game
     @rounds.times do |round|
       round_text(@rounds - round)
       puts display_key("stdout")
