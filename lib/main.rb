@@ -22,5 +22,5 @@ def load_game
 end
   
 game = load_game  
-puts game.word
+# puts game.word
 puts game.play_game

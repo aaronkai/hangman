@@ -1,0 +1,19 @@
+--- !ruby/object:Game
+word: picker
+rounds: 12
+guesses:
+- r
+- s
+- t
+- l
+- e
+- a
+correct_guesses:
+- r
+- e
+incorrect_guesses:
+- s
+- t
+- l
+- a
+current_round: 7

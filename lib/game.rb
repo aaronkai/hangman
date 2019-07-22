@@ -7,26 +7,12 @@ class Game
     @guesses = []
     @correct_guesses = []
     @incorrect_guesses = []
+    @current_round = 1
   end
-
-#  def load_game
-#    puts "Load a previously saved game (y/n)?"
-#    answer = gets.chomp.downcase until answer == "y" || answer == "n"
-#    if answer == "y"
-#      Dir.chdir('./save_states')
-#      files = Dir.glob('*') 
-#      puts "\nEnter the number of the saved game to load:"
-#      files.each_with_index do |file, index|
-#        puts "#{index}) #{file}"
-#      end
-#      file_number = gets.chomp.to_i
-#      YAML.load_file(files[file_number])
-#     end
-#   end
   
   def round_text(round)
     puts "Wrong guesses: #{incorrect_guesses.join(" ")}"
-    puts "#{round} round(s) remaining"
+    puts "#{@rounds - @current_round +1} round(s) remaining"
     puts "Guess a letter:"
   end
   
@@ -60,6 +46,11 @@ class Game
   end
   
   def lost_round
+    if @current_round > @rounds
+      puts "YOU LOSE"
+      puts "Secret word was #{word}"
+      exit
+    end
     puts display_key("stdout")
     answer = ""
     puts "Do you want to save your game and quit(y/n)?" 
@@ -69,20 +60,21 @@ class Game
     
   def save_game
     Dir.chdir("save_states")
-  file_name = "#{display_key("save")}.savestate.yaml"
+    file_name = "#{display_key("save")}.savestate.yaml"
     save_handle = File.open(file_name, "w"){ |file| file.puts(YAML::dump(self)) }
     exit
   end
   
   def play_game
-#     load_game
-    @rounds.times do |round|
-      round_text(@rounds - round)
+    until @current_round > @rounds do
+      round_text(@current_round)
       puts display_key("stdout")
       get_guess
       evaluate_guesses
+      @current_round += 1
       if winner?
-        puts "YOU WIN"
+        puts display_key("stdout")
+        puts "YOU WIN in #{@current_round} rounds"
         break
       else
         lost_round
