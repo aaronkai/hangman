@@ -7,7 +7,6 @@ game = Game.new(SelectWord.new.random_word)
 
 
 get '/' do 
-  
   erb :index, :locals => {:word => game.word,
                           :guesses => game.guesses,
                           :correct_guesses => game.correct_guesses,
@@ -16,14 +15,17 @@ get '/' do
                           }
 end
 
-get '/guess' do 
-  throw params.inspect 
-  game.guesses.push(guess)
-  game.evaluate_guesses(guess)
+post '/guess' do 
+#   throw params.inspect 
+  last_guess = params['guess']
+  game.guesses.push(last_guess)
+  game.evaluate_guesses
   erb :index, :locals => {:word => game.word,
                           :guesses => game.guesses,
                           :correct_guesses => game.correct_guesses,
-                          :incorrect_guesses => game.incorrect_guesses
+                          :incorrect_guesses => game.incorrect_guesses,
+                          :key => game.display_key('stdout')
+
                           }
 end
 
