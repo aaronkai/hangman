@@ -45,8 +45,12 @@ class Game
     correct_guesses.sort == word.split("").sort.uniq ? true : false
   end
   
+  def game_over?
+    @current_round > @rounds? true : false
+  end
+  
   def lost_round
-    if @current_round > @rounds
+    if game_over?
       puts "YOU LOSE"
       puts "Secret word was #{word}"
       exit

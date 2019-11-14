@@ -8,24 +8,20 @@ game = Game.new(SelectWord.new.random_word)
 
 get '/' do 
   erb :index, :locals => {:word => game.word,
-                          :guesses => game.guesses,
-                          :correct_guesses => game.correct_guesses,
-                          :incorrect_guesses => game.incorrect_guesses,
                           :key => game.display_key('stdout')
                           }
 end
 
 post '/guess' do 
-#   throw params.inspect 
   last_guess = params['guess']
   game.guesses.push(last_guess)
   game.evaluate_guesses
+  game.current_round += 1
+  #need to add logic for determining loss, saving game, and loading game.
   erb :index, :locals => {:word => game.word,
-                          :guesses => game.guesses,
-                          :correct_guesses => game.correct_guesses,
-                          :incorrect_guesses => game.incorrect_guesses,
-                          :key => game.display_key('stdout')
-
+                          :key => game.display_key('stdout'),
+                          :winner => game.winner?,
+                          :rounds_remaining =>game.rounds - game.current_round
                           }
 end
 
