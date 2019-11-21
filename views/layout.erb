@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Hang Sinatra</title>
+<!--     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script> -->
+  </head>
+  <style></style>
+  <body>
+    <header>
+      <h1>
+        Hang Sinatra!
+      </h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="save" >Save Game</a></li>
+        <li><a href="load" >Load Game</a></li>
+        <li><a href="forfeit">Forfeit Game</a></li>
+      </ul>
+    </nav>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <p>
+        This is an implementation of the hangman game with a Sinatra backend.
+      </p>
+      <p>
+        It is an assignment from the <a href="http://theodinproject.com">Odin Project</a>
+      </p>
+      <p>
+        <a href="http://aaronkai.github.io">Aaron Hubbard</a>
+      </p>
+    </footer>
+  </body>
+</html>

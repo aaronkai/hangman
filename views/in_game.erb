@@ -9,5 +9,14 @@
         <input type="text" name="guess"> <br>
         <input type="submit" value="submit">
       </form>
-
+      <p>
+        <%= rounds_remaining %> rounds left to guess         
+      </p>
+      <p>
+        Incorrect guesses: 
+        <% guesses.each do |guess| %>
+        <%= guess %> 
+        <% end %>
+        
+      </p>
    

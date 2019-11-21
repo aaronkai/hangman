@@ -1,0 +1,8 @@
+<% Dir.chdir('./save_states') %>
+<% files = Dir.glob('*') %>
+<ul>
+  <% files.each_with_index do |file, index| %>
+    <li><a href=load/<%=file%> > <%=file%> </a> </li>  
+  <% end %>
+</ul>
+<% Dir.chdir('..') %>

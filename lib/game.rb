@@ -1,5 +1,5 @@
 class Game
-  attr_accessor :word, :guesses, :correct_guesses, :incorrect_guesses
+  attr_accessor :word, :rounds, :guesses, :correct_guesses, :incorrect_guesses, :current_round
   
   def initialize(word)
     @word = word
@@ -66,8 +66,13 @@ class Game
     Dir.chdir("save_states")
     file_name = "#{display_key("save")}.savestate.yaml"
     save_handle = File.open(file_name, "w"){ |file| file.puts(YAML::dump(self)) }
-    exit
+    Dir.chdir("..")
   end
+    
+  def load_game
+
+  end
+
   
   def play_game
     until @current_round > @rounds do
