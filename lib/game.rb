@@ -68,11 +68,6 @@ class Game
     save_handle = File.open(file_name, "w"){ |file| file.puts(YAML::dump(self)) }
     Dir.chdir("..")
   end
-    
-  def load_game
-
-  end
-
   
   def play_game
     until @current_round > @rounds do

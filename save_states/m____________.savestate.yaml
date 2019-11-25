@@ -1,0 +1,13 @@
+--- !ruby/object:Game
+word: mahjong
+rounds: 14
+guesses:
+- m
+- x
+- ''
+correct_guesses:
+- m
+incorrect_guesses:
+- x
+- ''
+current_round: 4

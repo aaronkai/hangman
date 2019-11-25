@@ -1,5 +1,7 @@
 require 'sinatra'
-require 'sinatra/reloader'
+if development? 
+  require 'sinatra/reloader'
+end
 require_relative 'lib/select_word.rb'
 require_relative 'lib/game.rb'
 require 'yaml'
@@ -24,7 +26,7 @@ post '/guess' do
                           :key => game.display_key('stdout'),
                           :winner => game.winner?,
                           :rounds_remaining =>game.rounds - game.current_round,
-                          :guesses => game.guesses
+                          :bad_guesses => game.incorrect_guesses
                           }
 end
 
@@ -47,7 +49,9 @@ get '/load/:file' do
                         :key => game.display_key('stdout'),
                         :winner => game.winner?,
                         :rounds_remaining =>game.rounds - game.current_round,
-                        :guesses => game.guesses
+                        :guesses => game.guesses,
+                        :bad_guesses => game.incorrect_guesses
+
                         }
 end
 
