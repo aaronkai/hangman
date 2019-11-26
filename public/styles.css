@@ -42,22 +42,68 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-/*End CSS RESET */
+/*End CSS RESET ***********************************/
+html {
+  height: 100%;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  background: black;
+}
+
+.app-container{
+  flex: 1 0 auto;
+}
 
 .title {
   font-family: 'Metal Mania', cursive;
   font-size: 8vw;
+  padding: .5em .25em 0;
+  color: white;
 }
 
 .navbar {
-  display: flex
+  display: flex;
+  padding: .2em .2em 1em; 
 }
 
-.navbar__item {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 3vw; 
+.navbar__list-item {
+  padding: 0 .5em;
 }
 
 .navbar__link{
   text-decoration: none;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 3vw; 
+  color: white
+}
+
+.hangman-image{
+  filter: invert(1);
+}
+
+.in-game-paragraph{
+  color: white;
+}
+
+.first-load-paragraph {
+  color: white;
+}
+
+
+.footer{
+  flex: none;
+  background-color: grey;
+  padding: .5em 2em;
+  align-self: stretch;
+}
+
+.footer__paragraph{
+  padding: .2em 0;
+  font-family: 'Nunito', sans-serif;
+  color: white;
 }

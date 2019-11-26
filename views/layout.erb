@@ -4,36 +4,37 @@
     <meta charset="utf-8">
     <title>Hang Sinatra</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Metal+Mania&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Metal+Mania|Nunito|Roboto+Condensed&display=swap" rel="stylesheet">
 <!--     <script src="script.js"></script> -->
   </head>
   <style></style>
+  <div class="app-container">  
   <body>
     <header>
       <h1 class="title">
         Hang Sinatra!
       </h1>
     </header>
-    <nav>
+    <nav class="navbar">
       <ul class="navbar">
-        <li class="navbar__item"><a href="save" class="navbar__link">Save Game</a></li>
-        <li class="navbar__item"><a href="load" class="navbar__link">Load Game</a></li>
-        <li class="navbar__item"><a href="forfeit" class="navbar__link">Forfeit Game</a></li>
+        <li class="navbar__list-item"><a href="save" class="navbar__link">Save Game</a></li>
+        <li class="navbar__list-item"><a href="load" class="navbar__link">Load Game</a></li>
+        <li class="navbar__list-item"><a href="forfeit" class="navbar__link">Forfeit Game</a></li>
       </ul>
     </nav>
     <main>
       <%= yield %>
     </main>
-    <footer>
-      <p>
+    </div>
+    <footer class="footer">
+      <p class="footer__paragraph">
         This is an implementation of the hangman game with a Sinatra backend.
       </p>
-      <p>
+      <p class="footer__paragraph">
         It is an assignment from the <a href="http://theodinproject.com">Odin Project</a>
       </p>
-      <p>
-        <a href="http://aaronkai.github.io">Aaron Hubbard</a>
+      <p class="footer__paragraph">
+        The author is <a href="http://aaronkai.github.io">Aaron Hubbard</a>
       </p>
     </footer>
   </body>

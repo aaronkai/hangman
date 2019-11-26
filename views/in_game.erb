@@ -1,4 +1,5 @@
-      <p>
+      <img class="hangman-image" alt="Hangman by Hea Poh Lin from the Noun Project" src='/hangman.svg' />
+      <p class="in-game-paragraph">
         The secret word is <%= word %>.
       </p>
       <p>
@@ -9,10 +10,10 @@
         <input type="text" name="guess"> <br>
         <input type="submit" value="submit">
       </form>
-      <p>
+      <p class="in-game-paragraph">
         <%= rounds_remaining %> rounds left to guess         
       </p>
-      <p>
+      <p class="in-game-paragraph">
         Incorrect guesses: 
         <% bad_guesses.each do |guess| %>
         <%= guess %> 

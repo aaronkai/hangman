@@ -21,12 +21,14 @@ post '/guess' do
   game.guesses.push(last_guess)
   game.evaluate_guesses
   game.current_round += 1
+  opacity = (game.rounds/game.current_round)
   #need to add logic for determining loss, saving game, and loading game.
   erb :in_game, :locals => {:word => game.word,
                           :key => game.display_key('stdout'),
                           :winner => game.winner?,
                           :rounds_remaining =>game.rounds - game.current_round,
-                          :bad_guesses => game.incorrect_guesses
+                          :bad_guesses => game.incorrect_guesses,
+                          :opacity => opacity
                           }
 end
 
