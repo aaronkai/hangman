@@ -1,58 +1,14 @@
-/* Begin CSS reset */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-/*End CSS RESET ***********************************/
 html {
   height: 100%;
 }
 
-body{
+.body{
   display: flex;
   flex-direction: column;
   height: 100vh;
   align-items: center;
   background: black;
+  margin: 0px;
 }
 
 .app-container{
@@ -61,14 +17,17 @@ body{
 
 .title {
   font-family: 'Metal Mania', cursive;
-  font-size: 8vw;
-  padding: .5em .25em 0;
+  font-size: 14vw;
   color: white;
+  text-align: center;
+  margin: 0px;
 }
 
 .navbar {
   display: flex;
-  padding: .2em .2em 1em; 
+  padding: 0px; 
+  justify-content: center;
+  margin-bottom: 3vh;
 }
 
 .navbar__list-item {
@@ -82,28 +41,63 @@ body{
   color: white
 }
 
+.navbar__link:hover{
+  color: salmon;
+}
+
 .hangman-image{
   filter: invert(1);
+  max-height: 300px;
 }
 
-.in-game-paragraph{
+.key {
+  font-size: 3vw;
+  text-align: center;
+}
+
+.controls{
+  display: flex;
+  height 200px;
+  justify-content: center;
+}
+
+.controls__item{
+  background: grey;
+  margin: 10px;
+  font-size: 3vh;
+  padding: 1vw;
+}
+
+.controls__item{
   color: white;
+  padding: 1vh;
 }
 
-.first-load-paragraph {
+.controls__form{
   color: white;
+  padding: 1vh;
 }
 
+.app-container__paragraph{
+  color:white
+}
+
+.app-container__paragraph__hidden{
+  color: black;
+}
+
+.controls__form{
+  padding: 1vh 0;
+}
 
 .footer{
   flex: none;
   background-color: grey;
-  padding: .5em 2em;
   align-self: stretch;
 }
 
 .footer__paragraph{
-  padding: .2em 0;
   font-family: 'Nunito', sans-serif;
   color: white;
+  margin: 0px;
 }

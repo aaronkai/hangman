@@ -1,14 +1,27 @@
-      <img class="hangman-image" alt="Hangman by Hea Poh Lin from the Noun Project" src='/hangman.svg' />
-      <p class="first-load-paragraph">
-        The secret word is <%= word %>.
-      </p>
-      <p class="first-load-paragraph">
-        <%= key %>
-      </p>
-      <form method="POST" action="/guess">
-        Guess a letter in the secret word: <br>
-        <input type="text" name="guess"> <br>
-        <input type="submit" value="submit">
-      </form>
+<img class="hangman-image" alt="Hangman by Hea Poh Lin from the Noun Project" src='/hangman.svg' />
+<p class="app-container__paragraph app-container__paragraph--hidden">
+  The secret word is
+  <%= word %>.
+</p>
+<p class="key app-container__paragraph">
+  <%= key %>
+</p>
 
-   
+<div class="controls">
+
+  <form method="POST" action="/guess" class='controls__form'>
+    <input type="text" id="guess" name="guess">
+    <input type="submit" value="Guess a Letter">
+  </form>
+
+  <p class="app-container__paragraph controls__item">
+    <%= rounds_remaining %> rounds left to guess
+  </p>
+  <p class="app-container__paragraph controls__item">
+    Incorrect guesses:
+    <% bad_guesses.each do |guess| %>
+      <%= guess %>
+    <% end %>
+  </p>
+  
+</div>
